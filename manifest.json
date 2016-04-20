@@ -1,0 +1,36 @@
+{
+  "name": "DoubleBot",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "An automated CSGODouble betting bot for Google Chrome.",
+  "homepage_url": "https://github.com/justinoboyle/doublebot",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "contentSettings",
+    "cookies",
+    "notifications",
+    "tabs",
+    "http://www.csgodouble.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.csgodouble.com/*"
+      ],
+      "js": [
+        "src/inject/jquery.js",
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
